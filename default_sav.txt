@@ -1,0 +1,53 @@
+<!--#Include Virtual="/ASPIncludes/CMI/session.asp"-->
+<% 
+If HasCheckCenter then
+	if request.servervariables("SERVER_NAME") = "dev.check-center.com" then
+		response.redirect "http://dev.check-center.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end 
+	end if
+	if request.servervariables("SERVER_NAME") = "msdev.check-center.com" then
+		response.redirect "http://msdev.check-center.com/logon2.asp?" & Request.QueryString
+		response.end 
+	end if
+	if request.servervariables("SERVER_NAME") = "rb.check-center.com" then
+		response.redirect "https://rb.check-center.com/logon2.asp?" & Request.QueryString
+		response.end 
+	end if	
+	if request.servervariables("SERVER_NAME") = "msnew.check-center.com" then
+		response.redirect "https://www.check-center.com/?" & Request.QueryString
+		response.end 
+	end if		
+	if request.servervariables("SERVER_NAME") = "www.check-center.com" then
+		response.redirect "https://www.check-center.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end
+	end if
+else
+	if request.servervariables("SERVER_NAME") = "dev.cross-check.com" then
+		response.redirect "http://msdev.cross-check.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end 
+	end if
+	if request.servervariables("SERVER_NAME") = "msdev.cross-check.com" then
+		response.redirect "http://msdev.cross-check.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end 
+	end if
+	if request.servervariables("SERVER_NAME") = "rb.cross-check.com" then
+		response.redirect "https://rb.cross-check.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end 
+	end if		
+	if request.servervariables("SERVER_NAME") = "msdev.check-center.com" then
+		response.redirect "http://msdev.check-center.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end 
+	end if
+	if request.servervariables("SERVER_NAME") = "msnew.check-center.com" then
+		response.redirect "https://www.check-center.com?" & Request.QueryString
+		response.end 
+	end if	
+	if request.servervariables("SERVER_NAME") = "www.cross-check.com" or request.servervariables("SERVER_NAME") = "cross-check.com" then
+		response.redirect "https://ms.cross-check.com/merchantsupport/logon.asp?" & Request.QueryString
+		response.end
+	end if
+end if
+Session.Abandon
+response.redirect "https://" & Request.ServerVariables("SERVER_NAME") & "/merchantsupport/logon.asp?" & Request.QueryString
+response.end
+%>
